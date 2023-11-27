@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* CSS VARIABLES */
+:root {
+    --navbar-height: 59px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("https://wallpaperbat.com/img/188515-book-wallpaper-3888x2592-pin-and-use-it-bookwallpaper.jpg");
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 10px;
+}
+
+.primary {
+    font-size: 2.5rem;
+    padding: 12px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.secondary {
+    font-size: 1.2rem;
+    font-family: 'Dancing Script', cursive;
+    margin: 20px auto;
+    width: 60%;
+    color: chocolate;
+    text-align: center;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: 2px solid wheat;
+    background-color: brown;
+    color: whitesmoke;
+    margin: 20px auto;
+    font-size: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: white;
+    color: red;
+    border: 2px solid black;
+}
+
+.center {
+    text-align: center;
+}
+
+.services-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.services-container h3 {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    border: 2px solid red;
+    width: 70%;
+    border-radius: 25px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 34px;
+}
+
+#services .box {
+    border: 2px solid brown;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 24px;
+    background-color: beige;
+    opacity: 0.8;
+    min-width: 300px;
+    max-width: 400px;
+}
+
+#services .box img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 15px;
+}
+
+a {
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .secondary {
+        width: 90%;
+    }
+
+    .services-container h3 {
+        width: 90%;
+    }
+}
+
+@media (max-width: 576px) {
+    .primary {
+        font-size: 2rem;
+    }
+
+    .secondary {
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+    }
+
+    .services-container h3 {
+        font-size: 1rem;
+    }
+
+    #services .box {
+        min-width: 90%;
+        max-width: 90%;
+    }
+}
