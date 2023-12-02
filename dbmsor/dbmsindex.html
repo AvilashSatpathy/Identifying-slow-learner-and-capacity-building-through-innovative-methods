@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBMS Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://t3.ftcdn.net/jpg/05/98/22/32/240_F_598223276_Iq3V38WU1zzP8Ca2QpMlD4UxWV2sXNIo.jpg'); /* Replace 'background.jpg' with your image file path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: rgb(245, 18, 18); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .welcome {
+            font-size: 24px;
+            color: #333; /* Dark gray text color */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .star-rating {
+            font-size: 30px;
+            color: #333; /* Dark gray text color */
+        }
+
+        .star-input {
+            display: none;
+        }
+
+        .star-label {
+            cursor: pointer;
+            color: #333; /* Dark gray text color */
+        }
+
+        .star {
+            color: gold;
+            cursor: pointer;
+        }
+
+        .terms-conditions-container {
+            margin-top: 20px;
+        }
+
+        .terms-box {
+            background-color: #007bff; /* Highlighted color */
+            border-radius: 5px;
+            padding: 10px;
+            color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        .show-terms-conditions .terms-box {
+            max-height: 200px;
+        }
+
+        #next-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #next-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="welcome">
+            Welcome to the DBMS Test
+        </div>
+        <div class="star-rating">
+            Rate your experience:
+            <input type="radio" name="rating" value="1" class="star-input" id="star1">
+            <label for="star1" class="star-label"><span class="star">&#9733;</span></label>
+            <input type="radio" name="rating" value="2" class="star-input" id="star2">
+            <label for="star2" class="star-label"><span class="star">&#9733;</span></label>
+            <input type="radio" name="rating" value="3" class="star-input" id="star3">
+            <label for="star3" class="star-label"><span class="star">&#9733;</span></label>
+            <input type="radio" name="rating" value="4" class="star-input" id="star4">
+            <label for="star4" class="star-label"><span class="star">&#9733;</span></label>
+            <input type="radio" name="rating" value="5" class="star-input" id="star5">
+            <label for="star5" class="star-label"><span class="star">&#9733;</span></label>
+        </div>
+        <div class="terms-conditions-container">
+            <button id="show-terms-button">Show Terms and Conditions</button>
+            <div class="terms-conditions">
+                <div class="terms-box">
+                    <p>By proceeding with this test, you agree to the following terms and conditions:</p>
+                    <p>1. The test duration is 30 minutes.</p>
+                    <p>2. Please try to answer all the questions.</p>
+                </div>
+            </div>
+        </div>
+        <button id="next-button"><a href="dbms1.html">Next</a></button>
+    </div>
+
+    <script>
+        document.getElementById("show-terms-button").addEventListener("click", function() {
+            const termsConditions = document.querySelector(".terms-conditions");
+            const termsButton = document.getElementById("show-terms-button");
+
+            if (termsConditions.classList.contains("show-terms-conditions")) {
+                termsConditions.classList.remove("show-terms-conditions");
+                termsButton.innerText = "Show Terms and Conditions";
+            } else {
+                termsConditions.classList.add("show-terms-conditions");
+                termsButton.innerText = "Hide Terms and Conditions";
+            }
+        });
+    </script>
+</body>
+</html>

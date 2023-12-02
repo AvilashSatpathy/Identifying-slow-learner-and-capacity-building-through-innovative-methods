@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Online Studies</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Style the body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+        }
+
+        /* Style the sidebar */
+        .sidebar {
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: slideInLeft 1s ease-in-out;
+        }
+
+        /* Style the learning cycle container */
+        .learning-cycle-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        /* Style the learning cycle animation */
+        .learning-cycle {
+            width: 100px;
+            height: 100px;
+            background-color: transparent;
+            border: 5px solid #007bff;
+            border-radius: 50%;
+            animation: learning-cycle-animation 6s infinite; /* Apply the animation */
+            overflow: hidden;
+        }
+
+        /* Style the learning cycle stages */
+        .stage {
+            margin-top: 10px;
+            font-size: 16px;
+            opacity: 0.8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Style the stage circles */
+        .stage-circle {
+            width: 40px;
+            height: 40px;
+            background-color: #007bff;
+            border-radius: 50%;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Style the stage titles */
+        .stage-title {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        /* Style the downward arrow for Gain Knowledge and Execute */
+        .down-arrow {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 20px solid #007bff;
+            animation: arrow-animation 2s infinite; /* Apply the animation */
+        }
+
+        /* Style the header */
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            flex: 1;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Style the profile picture/logo */
+        .profile-picture {
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #fff;
+            transition: transform 0.3s ease;
+        }
+
+        /* Style the profile picture/logo on hover */
+        .profile-picture:hover {
+            transform: scale(1.1);
+        }
+
+        /* Style the header text */
+        h1 {
+            font-size: 36px;
+            margin-top: 10px;
+        }
+
+        /* Style the header subtext */
+        p {
+            font-size: 18px;
+            margin-top: 5px;
+            opacity: 0.8;
+        }
+
+        /* Style the main content container */
+        .content-container {
+            flex: 2;
+            padding: 20px;
+            background-image: url('https://wallpapercave.com/wp/wp8168786.jpg'); /* Set the background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: zoomIn 1s ease-in-out;
+        }
+
+        /* Style section headings */
+        h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        /* Style course cards */
+        .course-card {
+            background-color: rgba(247, 247, 247, 0.7); /* Set a transparent background color */
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        /* Style course card headings */
+        .course-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* Style course card description */
+        .course-description {
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        /* Style course card hover effect */
+        .course-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Style a button for accessing courses */
+        .access-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.2s ease;
+        }
+
+        /* Style the button on hover */
+        .access-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Learning cycle animation */
+        @keyframes learning-cycle-animation {
+            0% { border-color: #007bff; }
+            33% { border-color: #00cc00; }
+            66% { border-color: #ffcc00; }
+            100% { border-color: #007bff; }
+        }
+
+        /* Arrow animation */
+        @keyframes arrow-animation {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        /* Animation for sliding in the sidebar from the left */
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-200px);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        /* Animation for fading in the header */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Animation for zooming in the main content */
+        @keyframes zoomIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        /* Animation for fading in the course cards */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <!-- Learning cycle animation container -->
+        <div class="learning-cycle-container">
+            <div class="learning-cycle">
+                <img src="https://image.winudf.com/v2/image/Y29tLndHYWludGhla25vd2xlZGdlXzY5Mzc3MDNfc2NyZWVuXzNfMTUyODI2NjM1N18wMjY/screen-3.jpg?fakeurl=1&type=.jpg" alt="Gain Knowledge" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="stage">
+                <div class="stage-circle">1</div>
+                <p class="stage-title">Knowledge Provider</p>
+                <div class="down-arrow"></div>
+            </div>
+        </div>
+        <div class="learning-cycle-container">
+            <div class="learning-cycle">
+                <img src="https://www.wellsins.com/wordpress/wp-content/uploads/2017/08/knowledgeicon.png" alt="Execute" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="stage">
+                <div class="stage-circle">2</div>
+                <p class="stage-title">Teaching Method</p>
+                <div class="down-arrow"></div>
+            </div>
+        </div>
+        <div class="learning-cycle-container">
+            <div class="learning-cycle">
+                <img src="https://www.sipltraining.com/assets/img/about-img1.jpg" alt="Succeed" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="stage">
+                <div class="stage-circle">3</div>
+                <p class="stage-title">Encourage</p>
+            </div>
+        </div>
+    </div>
+    <header>
+        <!-- Add your profile picture/logo here -->
+        <img src="https://th.bing.com/th/id/OIP.DELBcv7S13p2ZuKgVRx10wHaHa?w=190&h=189&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Profile Picture" class="profile-picture">
+        <h1>Welcome to Teachers Online Dashboard</h1>
+        <p>Your Gateway to Learning</p>
+        <style>
+            /* Add CSS styles for the header */
+            header {
+                background-image: url('https://images7.alphacoders.com/108/thumb-1920-1087953.jpg');
+                background-size: cover; /* Adjust as needed */
+                background-position: center center;
+                background-repeat: no-repeat; /* Adjust as needed */
+                /* Additional CSS properties for header styling */
+            }
+        </style>
+         </header>
+    <div class="content-container">
+        <h2>Featured Courses</h2>
+        <div class="course-card">
+            <h3 class="course-title">Slow Learners</h3>
+            <p class="course-description">Learn the fundamentals of aptitude and improve your problem-solving skills.</p>
+            <a href="./slowlearner.html" class="access-button">Access Content</a>
+        </div>
+        <div class="course-card">
+            <h3 class="course-title">Fast Learners</h3>
+            <p class="course-description">Explore the fascinating world of reasoning and critical thinking.</p>
+            <a href="quiz1.html" class="access-button">Access Content</a>
+        </div>
+        <div class="course-card">
+            <h3 class="course-title">Check Student Result</h3>
+            <p class="course-description">Explore the fascinating world of reasoning and critical thinking.</p>
+            <a href="results.html" class="access-button">Check</a>
+        </div>
+    </div>
+    <!-- Start of ChatBot (www.chatbot.com) code -->
+<script type="text/javascript">
+    window.__be = window.__be || {};
+    window.__be.id = "650d6ee34b44160007bbc8db";
+    (function() {
+        var be = document.createElement('script'); be.type = 'text/javascript'; be.async = true;
+        be.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.chatbot.com/widget/plugin.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(be, s);
+    })();
+</script>
+<noscript>You need to <a href="https://www.chatbot.com/help/chat-widget/enable-javascript-in-your-browser/" rel="noopener nofollow">enable JavaScript</a> in order to use the AI chatbot tool powered by <a href="https://www.chatbot.com/" rel="noopener nofollow" target="_blank">ChatBot</a></noscript>
+<!-- End of ChatBot code -->
+</body>
+</html>

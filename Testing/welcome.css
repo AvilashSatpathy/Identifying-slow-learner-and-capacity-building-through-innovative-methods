@@ -1,0 +1,35 @@
+/* *{
+    margin: 0;
+    padding: 0;
+} */
+#navbar{
+
+    display: flex;
+    justify-content: space-between;
+
+}
+#navbar ul li{
+    list-style: none;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    margin: 10px;
+    
+}
+a{
+   color:white;
+   text-decoration: none;
+}
+a:hover{
+    color: gray;
+}
+.rightSide li, .leftSide li {
+    display: inline;
+   }
+#navbar{
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    opacity: 0.8;
+}

@@ -1,0 +1,163 @@
+/* Reset default styles and set the font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Remove underlines from links */
+a {
+    text-decoration: none;
+}
+/* Create a centered, dark-themed container */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: url("bg.png"), -webkit-linear-gradient(bottom, #0250c5, #d43f8d);
+}
+.side{
+    color: #000;
+    margin-left: 70px;
+}
+
+.container {
+    /* width: 350px;
+    height: 500px;
+    background: #333;
+    box-shadow: 10px 20px 20px 0 rgba(0, 0, 0, 0.4), -10px 20px 20px 0 rgba(0, 0, 0, 0.4), 0 -2px 20px 0 rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center; */
+    width: 330px;
+    background: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 50px 35px 10px 35px;
+}
+/* Style the grid layout containing forms */
+.signin-signup {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+/* Style the forms and hide the sign-up form initially */
+form {
+    grid-column: 1 / 2;
+    grid-row: 1/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* form.sign-up-form {
+    visibility: hidden;
+} */
+
+/* Style form titles, input fields, icons, and buttons */
+.title {
+    font-size: 35px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.input-field {
+    width: 280px;
+    height: 50px;
+    border-bottom: 2px solid #999;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+.selection{
+    width: 280px;
+    height: 50px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+.selection p{
+    margin-left: 21px;
+    margin-right: 0px;
+}
+.selection input{
+    margin-left: 5px;
+}
+.input-field i {
+    flex: 1;
+    text-align: center;
+    font-size: 20px;
+    color: #999;
+}
+
+.input-field input {
+    flex: 5;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+    color: #f0f0f0;
+    font-weight: 600;
+}
+.select{
+    flex: 5;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+    color: #f0f0f0;
+    font-weight: 600;
+}
+/* Style paragraphs and links */
+p,
+a {
+    font-size: 14px;
+    color: #999;
+}
+
+.forgot-password {
+    align-self: flex-end;
+}
+
+.btn {
+    width: 130px;
+    height: 40px;
+    background: #d33f8d;
+    outline: none;
+    /* border: 2px solid #999; */
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 600;
+    margin: 20px 0;
+    color: white;
+}
+
+.btn:hover {
+    color: #f0f0f0;
+    border: none;
+    background: #000;
+}
+
+.account-text {
+    color: #f0f0f0;
+}
+
+/* Make the sign-up form visible when in sign-up mode
+.container.sign-up-mode form.sign-up-form {
+    visibility: visible;
+} */
+
+/* Hide the sign-in form when in sign-up mode */
+/* .container.sign-up-mode form.sign-in-form {
+    visibility: hidden;
+} */
+/* Adjust container styles for smaller screens */
+@media (max-width: 400px) {
+    .container {
+        width: 100vw;
+        height: 100vh;
+    }
+}

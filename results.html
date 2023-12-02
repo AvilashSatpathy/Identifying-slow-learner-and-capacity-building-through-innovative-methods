@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <style>
+        /* Center the content vertically and horizontally */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f2f2f2; /* Background color */
+        }
+
+        /* Style for the container */
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Style for headings */
+        h1 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Style for the scores */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Style for the scores span */
+        span {
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz Results</h1>
+
+    <h2>Category-wise Scores</h2>
+    <ul>
+        <li>Aptitude: <span id="aptitudeScore">0</span></li>
+        <li>Mathematics: <span id="mathematicsScore">0</span></li>
+        <li>Programming: <span id="programmingScore">0</span></li>
+    </ul>
+
+    <script>
+        // Function to parse query parameters from the URL
+        function getQueryParams() {
+            const queryParams = {};
+            const urlParams = new URLSearchParams(window.location.search);
+            for (const [key, value] of urlParams.entries()) {
+                queryParams[key] = value;
+            }
+            return queryParams;
+        }
+
+        // Retrieve the query parameters
+        const queryParams = getQueryParams();
+
+        // Send the scores to the server when the page loads
+        fetch('/api/store-results', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(queryParams),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                // Handle the response if needed
+                console.log(data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
+        // Display the scores on the results page
+        document.getElementById('aptitudeScore').textContent = queryParams.aptitude || '0';
+        document.getElementById('mathematicsScore').textContent = queryParams.mathematics || '0';
+        document.getElementById('programmingScore').textContent = queryParams.programming || '0';
+    </script>
+</body>
+</html>

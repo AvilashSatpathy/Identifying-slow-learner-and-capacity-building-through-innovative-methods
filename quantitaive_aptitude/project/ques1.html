@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IQ Test - Question 1</title>
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 800px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        .question {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .option:hover {
+            background-color: #45a049;
+        }
+
+        .timer-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .timer-circle {
+            width: 100px;
+            height: 100px;
+           
+            background-color: #FFF;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10% ;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            animation: pulse 1s infinite alternate;
+        }
+
+        .timer-text {
+            font-weight: bold;
+            font-size: 36px;
+            color: #333;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Raining Numbers */
+        .raining-numbers {
+            position: absolute;
+            font-size: 18px;
+            font-weight: bold;
+            color: #161414;
+            animation: rain 3s linear infinite, float 3s infinite alternate;
+            top: 0;
+            left: calc(10% + 90% * random()); /* Random horizontal position */
+        }
+
+        @keyframes rain {
+            0% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Next Page Button */
+        .next-button-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .next-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .next-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- IQ Test Question 1 -->
+        <h1> Question 1</h1>
+        <p class="question">What comes next in the sequence: 2, 4, 6, 8, ...?</p>
+        <div class="options">
+            <div class="option" onclick="selectOption(this)">10</div>
+            <div class="option" onclick="selectOption(this)">12</div>
+            <div class="option" onclick="selectOption(this)">14</div>
+            <div class="option" onclick="selectOption(this)">16</div>
+        </div>
+    </div>
+
+    <div class="timer-container">
+        <div class="timer-circle">
+            <span id="timerCountdown" class="timer-text">60</span>
+        </div>
+    </div>
+
+    <!-- Raining Numbers -->
+    <div class="raining-numbers">42</div>
+    <div class="raining-numbers">17</div>
+    <div class="raining-numbers">99</div>
+
+    <!-- Next Page Button -->
+    <div class="next-button-container">
+        <button class="next-button hidden" onclick="goToNextQuestion()"><a href="ques2.html">Next Question</a></button>
+    </div>
+
+    <script>
+        let countdown = 60; // Timer countdown in seconds
+        let timerInterval;
+
+        function startTimer() {
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+
+        function updateTimer() {
+            countdown--;
+            document.getElementById("timerCountdown").textContent = countdown;
+
+            if (countdown <= 0) {
+                clearInterval(timerInterval);
+                goToNextQuestion();
+            }
+        }
+
+        function selectOption(option) {
+            // Disable other options
+            const options = document.querySelectorAll('.option');
+            options.forEach((opt) => {
+                opt.style.pointerEvents = 'none'; // Disable click events
+                opt.style.backgroundColor = '#999'; // Change color of other options
+            });
+
+            option.style.backgroundColor = '#007bff'; // Change color of selected option
+            showNextButton();
+        }
+
+        function showNextButton() {
+            const nextButton = document.querySelector(".next-button");
+            nextButton.classList.remove("hidden");
+        }
+
+        function goToNextQuestion() {
+            // You can add logic here to navigate to the next question or page.
+            // For simplicity, let's reload the page to simulate moving to the next question.
+            location.reload();
+        }
+
+        startTimer(); // Start the timer
+    </script>
+</body>
+</html>

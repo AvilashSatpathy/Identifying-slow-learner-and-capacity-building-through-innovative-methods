@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Add your common styling here */
+        body {
+            font-family: Arial, sans-serif;
+            background: url("https://wallpaper-house.com/data/out/8/wallpaper2you_262369.jpg") center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .form-box {
+            background: rgba(255, 255, 255, 0.8) center/cover no-repeat;
+            border-radius: 10px;
+            padding: 20px;
+            width: 600px;
+            height: 500px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .form-box.active {
+            display: block; /* Show the active form */
+        }
+
+        .form-box.login {
+            background-color: rgba(255, 255, 255, 0.8); /* Login form background color */
+            color: #000; /* Text color in login form */
+        }
+
+        .form-box h2 {
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-field label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: larger;
+        }
+
+        .input-field input {
+            width: 95%;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .form-box button {
+            background-color: #007BFF; /* Button background color */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-box login active">
+        <div class="form-details">
+            <h2>Welcome Back</h2>
+            <p>Please log in using your personal information to stay connected with us.</p>
+        </div>
+        <div class="form-content">
+            <h2>LOGIN</h2>
+            <form action="process_login.php">
+                <div class="input-field">
+                    <label>Email</label>
+                    <input type="text" required>
+                </div>
+                <div class="input-field">
+                    <label>Password</label>
+                    <input type="password" required>
+                </div>
+                <a href="#" class="forgot-pass-link">Forgot password?</a>
+                <button type="submit" href="indexo14.html">Log In</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

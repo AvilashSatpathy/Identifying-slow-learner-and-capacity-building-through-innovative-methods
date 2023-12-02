@@ -1,0 +1,70 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(123, 223, 228);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;   
+}
+
+.quiz-container{
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 black;
+    width: 600px;
+    height: 400px;
+    background-color: rgb(246, 247, 247);
+    position: relative;
+}
+
+#quiz-question {
+    font-size: 1.5rem;
+    padding: 20px; 
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    margin-left: 30px;
+}
+
+li {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+#submit {
+    background-color: #6a6a05;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 7.5px;
+    border-radius: 0 0 10px 10px;
+}
+
+#submit:hover {
+    background-color: #F39C12;
+    cursor: pointer;
+}
+/* Define a fade-in animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}

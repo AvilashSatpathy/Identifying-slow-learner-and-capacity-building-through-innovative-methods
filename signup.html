@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <!-- Styling for the Signup page -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .input-field {
+            margin-bottom: 20px;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .policy-text {
+            display: flex;
+            align-items: center;
+        }
+
+        .policy-text input {
+            margin-right: 5px;
+        }
+
+        button[type="submit"] {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .bottom-link {
+            margin-top: 20px;
+        }
+
+        .bottom-link a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Create Account</h2>
+        <p>To become a part of our community, please sign up using your personal information.</p>
+        <form action="process_signup.php" method="POST">
+            <div class="input-field">
+                <input type="text" name="email" required>
+                <label>Enter your email</label>
+            </div>
+            <div class="input-field">
+                <input type="password" name="password" required>
+                <label>Create password</label>
+            </div>
+            <!-- Add other form fields as needed -->
+            <div class="policy-text">
+                <input type="checkbox" id="policy" name="policy" required>
+                <label for="policy">I agree to the <a href="#" class="option">Terms & Conditions</a></label>
+            </div>
+            <div class="input-field">
+                <label for="student-type"></label>
+                <select id="student-type" name="student-type">
+                    <option value="college">College Student</option>
+                    <option value="school">School Student</option>
+                </select>
+            </div>
+            <button type="submit" name="signup">Sign Up</button>
+        </form>                
+        <div class="bottom-link">
+            Already have an account? 
+            <a href="login.html">Login</a>
+        </div>
+    </div>
+</body>
+</html>

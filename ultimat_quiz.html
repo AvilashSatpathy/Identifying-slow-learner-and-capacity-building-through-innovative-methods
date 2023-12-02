@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    h2 {
+        color: #333;
+        border-bottom: 1px solid #333;
+        padding-bottom: 10px;
+    }
+
+    form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <h1> Ultimate Quiz</h1>
+    
+    <!-- Aptitude Category -->
+    <h2>Aptitude</h2>
+    <form id="aptitudeQuiz">
+        <ol>
+            <li>
+                <p>What is 2 + 2?</p>
+                <label><input type="radio" name="q1" value="a"> 3</label>
+                <label><input type="radio" name="q1" value="b"> 4</label>
+                <label><input type="radio" name="q1" value="c"> 5</label>
+            </li>
+            <!-- Add more questions here -->
+        </ol>
+    </form>
+
+    <!-- Mathematics Category -->
+    <h2>Mathematics</h2>
+    <form id="mathematicsQuiz">
+        <ol>
+            <li>
+                <p>What is 5 * 7?</p>
+                <label><input type="radio" name="q1" value="a"> 25</label>
+                <label><input type="radio" name="q1" value="b"> 35</label>
+                <label><input type="radio" name="q1" value="c"> 42</label>
+            </li>
+            <!-- Add more questions here -->
+        </ol>
+    </form>
+
+    <!-- Programming Category -->
+    <h2>Programming</h2>
+    <form id="programmingQuiz">
+        <ol>
+            <li>
+                <p>What is the capital of France?</p>
+                <label><input type="radio" name="q1" value="a"> London</label>
+                <label><input type="radio" name="q1" value="b"> Berlin</label>
+                <label><input type="radio" name="q1" value="c"> Paris</label>
+            </li>
+            <!-- Add more questions here -->
+        </ol>
+    </form>
+
+    <!-- Category-wise score display -->
+    <h2>Category-wise Scores</h2>
+    <ul>
+        <li>Aptitude: <span id="aptitudeScore">0</span></li>
+        <li>Mathematics: <span id="mathematicsScore">0</span></li>
+        <li>Programming: <span id="programmingScore">0</span></li>
+    </ul>
+
+    <!-- Submit button -->
+    <button onclick="calculateScores()">Submit</button>
+
+    <!-- JavaScript to calculate scores -->
+    <script>
+        function calculateScores() {
+            // Get quiz forms
+            const aptitudeQuiz = document.getElementById('aptitudeQuiz');
+            const mathematicsQuiz = document.getElementById('mathematicsQuiz');
+            const programmingQuiz = document.getElementById('programmingQuiz');
+
+            // Calculate scores for each category
+            const aptitudeScore = calculateCategoryScore(aptitudeQuiz);
+            const mathematicsScore = calculateCategoryScore(mathematicsQuiz);
+            const programmingScore = calculateCategoryScore(programmingQuiz);
+
+            // Display scores
+            document.getElementById('aptitudeScore').textContent = aptitudeScore;
+            document.getElementById('mathematicsScore').textContent = mathematicsScore;
+            document.getElementById('programmingScore').textContent = programmingScore;
+
+            // Build the URL with query parameters
+            const resultsURL = `results.html?aptitude=${aptitudeScore}&mathematics=${mathematicsScore}&programming=${programmingScore}`;
+
+            // Redirect to the results page
+            window.location.href = resultsURL;
+        }
+
+        function calculateCategoryScore(quizForm) {
+            let score = 0;
+            const questions = quizForm.getElementsByTagName('li');
+            for (let i = 0; i < questions.length; i++) {
+                const selectedAnswer = quizForm.querySelector(`input[name="q${i + 1}"]:checked`);
+                if (selectedAnswer) {
+                    if (selectedAnswer.value === "b") { // Correct answer is 'b'
+                        score++;
+                    }
+                }
+            }
+            return score;
+        }
+    </script>
+</body>
+</html>
